@@ -20,6 +20,7 @@ const App = () => {
       }
     ]
   }
+  const addNewBackLogItem = () => console.log('clicked')
 
   return (
     <div className="App">
@@ -28,7 +29,10 @@ const App = () => {
       <MediaCard {...backLog.defaultCards[1]} />
       <MediaCard {...backLog.defaultCards[2]} />
       <MediaCard {...backLog.defaultCards[3]} />
-      <NewCardButton />
+      <Button
+        onClick={addNewBackLogItem}
+        text='++ Add New Backlog Item ++'
+      />
       <br /><br />
       <Footer />
     </div>
@@ -51,18 +55,14 @@ const MediaCard = ({ title, mediaType }) => {
   );
 }
 
-const NewCardButton = () => {
-  const handleClick = () => {
-    console.log('clicked')
-  }
-
+const Button = (props) => {
   return (
     <>
-      <button onClick={handleClick}>
-        ++ Add New Backlog Item ++
+      <button onClick={props.onClick}>
+        {props.text}
       </button>
     </>
-  );
+  )
 }
 
 const Footer = () => {
