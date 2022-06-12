@@ -28,6 +28,7 @@ const App = () => {
       <MediaCard {...backLog.defaultCards[1]} />
       <MediaCard {...backLog.defaultCards[2]} />
       <MediaCard {...backLog.defaultCards[3]} />
+      <NewCardButton />
       <br /><br />
       <Footer />
     </div>
@@ -46,6 +47,20 @@ const MediaCard = ({ title, mediaType }) => {
   return (
     <>
       <p>{title} ({mediaType})</p>
+    </>
+  );
+}
+
+const NewCardButton = () => {
+  const handleClick = () => {
+    console.log('clicked')
+  }
+
+  return (
+    <>
+      <button onClick={handleClick}>
+        ++ Add New Backlog Item ++
+      </button>
     </>
   );
 }
