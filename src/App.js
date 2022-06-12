@@ -1,7 +1,7 @@
 const App = () => {
   const backLog = {
     userName: "Dan",
-    defaultCards: [
+    mediaCardObjArr: [
       {
         title: "13 Sentinels",
         mediaType: "Video Game"
@@ -25,10 +25,7 @@ const App = () => {
   return (
     <div className="App">
       <Header userName={backLog.userName} />
-      <MediaCard {...backLog.defaultCards[0]} />
-      <MediaCard {...backLog.defaultCards[1]} />
-      <MediaCard {...backLog.defaultCards[2]} />
-      <MediaCard {...backLog.defaultCards[3]} />
+      <MediaCardContainer {...backLog.mediaCardObjArr}/>
       <Button
         onClick={addNewBackLogItem}
         text='++ Add New Backlog Item ++'
@@ -40,32 +37,45 @@ const App = () => {
 }
 
 const Header = ({ userName }) => (
-    <>
-      <h1>{userName}'s Backlog</h1>
-    </>
+  <>
+    <h1>{userName}'s Backlog</h1>
+  </>
 )
 
-const MediaCard = ({ title, mediaType }) => (
-    <>
-      <p>{title} ({mediaType})</p>
-    </>
-)
+const MediaCardContainer = (props) => {
+  const mediaCardObjArr = Object.values(props);
+  const mapObjToElement = mediaCardObj => <MediaCard {...mediaCardObj} />
+  const mediaCardElements = mediaCardObjArr.map(mapObjToElement)
+
+  return (
+    <div className="MediaCardContainer">
+      {mediaCardElements}
+    </div>
+  )
+}
+
+const MediaCard = ({ title, mediaType }) => {
+  return(
+  <>
+     <p>{title} ({mediaType})</p>
+  </>
+)}
 
 const Button = ({ onClick, text }) => (
-    <>
-      <button onClick={onClick}>
-        {text}
-      </button>
-    </>
+  <>
+    <button onClick={onClick}>
+      {text}
+    </button>
+  </>
 )
 
 const Footer = () => (
-    <>
-      <footer>
-        Webpage by:
-        <a href="https://dbyrne978.github.io/portfolio/"> Daniel Byrne</a>
-      </footer>
-    </>
+  <>
+    <footer>
+      Webpage by:
+      <a href="https://dbyrne978.github.io/portfolio/"> Daniel Byrne</a>
+    </footer>
+  </>
 )
 
 export default App;
