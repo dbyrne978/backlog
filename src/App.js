@@ -1,4 +1,5 @@
 const App = () => {
+  const userName = "Dan"
   const defaultCards = [
     {
       title: "13 Sentinels",
@@ -20,7 +21,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
+      <Header userName={userName} />
       <MediaCard {...defaultCards[0]} />
       <MediaCard {...defaultCards[1]} />
       <MediaCard {...defaultCards[2]} />
@@ -31,10 +32,10 @@ const App = () => {
   );
 }
 
-const Header = () => {
+const Header = (props) => {
   return (
     <>
-      <h1>Backlog Tracker</h1>
+      <h1>{props.userName}'s Backlog</h1>
     </>
   );
 }
