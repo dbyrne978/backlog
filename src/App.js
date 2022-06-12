@@ -1,28 +1,30 @@
 const App = () => {
-  const defaultCard1 = {
-    title: "13 Sentinels",
-    mediaType: "Video Game"
-  }
-  const defaultCard2 = {
-    title: "Buffy: the Vampire Slayer",
-    mediaType: "TV Show"
-  }
-  const defaultCard3 = {
-    title: "Chronicle",
-    mediaType: "Movie"
-  }
-  const defaultCard4 = {
-    title: "Blood of Elves",
-    mediaType: "Book"
-  }
+  const defaultCards = [
+    {
+      title: "13 Sentinels",
+      mediaType: "Video Game"
+    },
+    {
+      title: "Buffy: the Vampire Slayer",
+      mediaType: "TV Show"
+    },
+    {
+      title: "Chronicle",
+      mediaType: "Movie"
+    },
+    {
+      title: "Blood of Elves",
+      mediaType: "Book"
+    }
+  ]
 
   return (
     <div className="App">
       <Header />
-      <MediaCard {...defaultCard1} />
-      <MediaCard {...defaultCard2} />
-      <MediaCard {...defaultCard3} />
-      <MediaCard {...defaultCard4} />
+      <MediaCard {...defaultCards[0]} />
+      <MediaCard {...defaultCards[1]} />
+      <MediaCard {...defaultCards[2]} />
+      <MediaCard {...defaultCards[3]} />
       <br /><br />
       <Footer />
     </div>
