@@ -39,41 +39,33 @@ const App = () => {
   );
 }
 
-const Header = (props) => {
-  return (
+const Header = ({ userName }) => (
     <>
-      <h1>{props.userName}'s Backlog</h1>
+      <h1>{userName}'s Backlog</h1>
     </>
-  );
-}
+)
 
-const MediaCard = ({ title, mediaType }) => {
-  return (
+const MediaCard = ({ title, mediaType }) => (
     <>
       <p>{title} ({mediaType})</p>
     </>
-  );
-}
+)
 
-const Button = (props) => {
-  return (
+const Button = ({ onClick, text }) => (
     <>
-      <button onClick={props.onClick}>
-        {props.text}
+      <button onClick={onClick}>
+        {text}
       </button>
     </>
-  )
-}
+)
 
-const Footer = () => {
-  return (
+const Footer = () => (
     <>
       <footer>
         Webpage by:
         <a href="https://dbyrne978.github.io/portfolio/"> Daniel Byrne</a>
       </footer>
     </>
-  );
-}
+)
 
 export default App;
