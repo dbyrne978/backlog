@@ -42,10 +42,10 @@ const Header = (props) => {
   );
 }
 
-const MediaCard = (props) => {
+const MediaCard = ({ title, mediaType }) => {
   return (
     <>
-      <p>{props.title} ({props.mediaType})</p>
+      <p>{title} ({mediaType})</p>
     </>
   );
 }
