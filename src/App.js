@@ -1,10 +1,29 @@
 const App = () => {
+  const defaultCard1 = {
+    title: "13 Sentinels",
+    mediaType: "Video Game"
+  }
+  const defaultCard2 = {
+    title: "Buffy: the Vampire Slayer",
+    mediaType: "TV Show"
+  }
+  const defaultCard3 = {
+    title: "Chronicle",
+    mediaType: "Movie"
+  }
+  const defaultCard4 = {
+    title: "Blood of Elves",
+    mediaType: "Book"
+  }
+
   return (
     <div className="App">
       <Header />
-      <MediaCard number="1" />
-      <MediaCard number="2" />
-      <MediaCard number="3" />
+      <MediaCard {...defaultCard1} />
+      <MediaCard {...defaultCard2} />
+      <MediaCard {...defaultCard3} />
+      <MediaCard {...defaultCard4} />
+      <br /><br />
       <Footer />
     </div>
   );
@@ -21,7 +40,7 @@ const Header = () => {
 const MediaCard = (props) => {
   return (
     <>
-      <p>dummy media card {props.number}</p>
+      <p>{props.title} ({props.mediaType})</p>
     </>
   );
 }
