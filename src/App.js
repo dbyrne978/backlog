@@ -1,7 +1,8 @@
+import { useState } from "react";
+
 const App = () => {
-  const backLog = {
-    userName: "Dan",
-    mediaCardObjArr: [
+  const userName = "Dan"
+  const defaultBackLog = [
       {
         title: "13 Sentinels",
         mediaType: "Video Game"
@@ -19,16 +20,23 @@ const App = () => {
         mediaType: "Book"
       }
     ]
+  
+  const [ mediaCardObjArr, updateMediaCardObjArr ] = useState(defaultBackLog)
+  const addNewMediaCard = () => {
+    const newMediaCard = {
+      title: "test title",
+      mediaType: "test mediaType"
+    }
+    updateMediaCardObjArr([...mediaCardObjArr, newMediaCard])
   }
-  const addNewBackLogItem = () => console.log('clicked')
 
   return (
     <div className="App">
-      <Header userName={backLog.userName} />
-      <MediaCardContainer {...backLog.mediaCardObjArr}/>
+      <Header userName={userName} />
+      <MediaCardContainer {...mediaCardObjArr}/>
       <Button
-        onClick={addNewBackLogItem}
-        text='++ Add New Backlog Item ++'
+        onClick={addNewMediaCard}
+        text='++ Add New BackLog Item ++'
       />
       <br /><br />
       <Footer />
@@ -38,7 +46,7 @@ const App = () => {
 
 const Header = ({ userName }) => (
   <>
-    <h1>{userName}'s Backlog</h1>
+    <h1>{userName}'s BackLog</h1>
   </>
 )
 
