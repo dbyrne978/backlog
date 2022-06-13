@@ -1,21 +1,29 @@
 import { useState } from "react";
 
 const App = (props) => {
-  const [ mediaCardObjArr, updateMediaCardObjArr ] =
-      useState(props.mediaCardObjArr)
+  const [ stateVars, updateStateVars ] = useState({
+    mediaCardObjArr: props.mediaCardObjArr,
+    idCounter: props.idCounter
+  })
   
   const addNewMediaCard = () => {
     const newMediaCard = {
+      id: stateVars.idCounter,
       title: "test title",
       mediaType: "test mediaType"
     }
-    updateMediaCardObjArr([...mediaCardObjArr, newMediaCard])
+    updateStateVars(
+      {
+        mediaCardObjArr: [...stateVars.mediaCardObjArr, newMediaCard],
+        idCounter: stateVars.idCounter + 1
+      }
+    )
   }
 
   return (
     <div className="App">
       <Header userName={props.userName} />
-      <MediaCardContainer {...mediaCardObjArr}/>
+      <MediaCardContainer {...stateVars.mediaCardObjArr}/>
       <Button
         onClick={addNewMediaCard}
         text='++ Add New BackLog Item ++'
@@ -34,21 +42,21 @@ const Header = ({ userName }) => (
 
 const MediaCardContainer = (props) => {
   const mediaCardObjArr = Object.values(props);
-  const mapObjToElement = mediaCardObj => <MediaCard {...mediaCardObj} />
+  const mapObjToElement = mediaCardObj => (<MediaCard {...mediaCardObj} />)
   const mediaCardElements = mediaCardObjArr.map(mapObjToElement)
 
   return (
-    <div className="MediaCardContainer">
+    <ul className="MediaCardContainer" key="MediaCardContainer">
       {mediaCardElements}
-    </div>
+    </ul>
   )
 }
 
-const MediaCard = ({ title, mediaType }) => {
+const MediaCard = ({ id, title, mediaType }) => {
   return(
-  <>
-     <p>{title} ({mediaType})</p>
-  </>
+  <li key={id}>
+    {title} ({mediaType})
+  </li>
 )}
 
 const Button = ({ onClick, text }) => (
