@@ -5,7 +5,7 @@ import App from './App';
 
 const userName = "Dan"
 const idCounter = 5
-const mediaCardObjArr = [
+const mediaObjArr = [
     {
       id: 1,
       title: "13 Sentinels",
@@ -32,6 +32,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <App
     userName={userName}
     idCounter={idCounter}
-    mediaCardObjArr={mediaCardObjArr}
+    mediaObjArr={mediaObjArr}
   />
 )
