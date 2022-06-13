@@ -41,23 +41,21 @@ const Header = ({ userName }) => (
 )
 
 const MediaEleContainer = (props) => {
+  const mapObjToEle = mediaObj => (
+    <li key={mediaObj.id} className="media-ele">
+      {mediaObj.title} ({mediaObj.mediaType})
+    </li>
+  )
+
   const mediaObjArr = Object.values(props);
-  const mapObjToEle = mediaObj => (<MediaEle {...mediaObj} />)
   const mediaEleArr = mediaObjArr.map(mapObjToEle)
 
   return (
-    <ul className="MediaEleContainer">
+    <ul className="media-ele-container">
       {mediaEleArr}
     </ul>
   )
 }
-
-const MediaEle = ({ id, title, mediaType }) => {
-  return(
-  <li key={id}>
-    {title} ({mediaType})
-  </li>
-)}
 
 const Button = ({ onClick, text }) => (
   <>
