@@ -1,27 +1,9 @@
 import { useState } from "react";
 
-const App = () => {
-  const userName = "Dan"
-  const defaultBackLog = [
-      {
-        title: "13 Sentinels",
-        mediaType: "Video Game"
-      },
-      {
-        title: "Buffy: the Vampire Slayer",
-        mediaType: "TV Show"
-      },
-      {
-        title: "Chronicle",
-        mediaType: "Movie"
-      },
-      {
-        title: "Blood of Elves",
-        mediaType: "Book"
-      }
-    ]
+const App = (props) => {
+  const [ mediaCardObjArr, updateMediaCardObjArr ] =
+      useState(props.mediaCardObjArr)
   
-  const [ mediaCardObjArr, updateMediaCardObjArr ] = useState(defaultBackLog)
   const addNewMediaCard = () => {
     const newMediaCard = {
       title: "test title",
@@ -32,7 +14,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header userName={userName} />
+      <Header userName={props.userName} />
       <MediaCardContainer {...mediaCardObjArr}/>
       <Button
         onClick={addNewMediaCard}
