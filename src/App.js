@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useState } from "react"
+import Header from './components/Header'
+import Button from './components/Button'
+import Footer from './components/Footer'
+import MediaEleContainer from './components/MediaEleContainer'
 
 const App = (props) => {
   const [ stateVars, updateStateVars ] = useState({
@@ -33,46 +37,5 @@ const App = (props) => {
     </div>
   );
 }
-
-const Header = ({ userName }) => (
-  <>
-    <h1>{userName}'s BackLog</h1>
-  </>
-)
-
-const MediaEleContainer = (props) => {
-  const mediaObjArr = Object.values(props)
-
-  return (
-    <ul className="media-ele-container">
-      {mediaObjArr.map(mediaObj =>
-        <MediaEle key={mediaObj.id} mediaObj={mediaObj} />
-      )}
-    </ul>
-  )
-}
-
-const MediaEle = ({ mediaObj }) => (
-  <li className="media-ele">
-    {mediaObj.title} ({mediaObj.mediaType})
-  </li>
-)
-
-const Button = ({ onClick, text }) => (
-  <>
-    <button onClick={onClick}>
-      {text}
-    </button>
-  </>
-)
-
-const Footer = () => (
-  <>
-    <footer>
-      Webpage by:
-      <a href="https://dbyrne978.github.io/portfolio/"> Daniel Byrne</a>
-    </footer>
-  </>
-)
 
 export default App;
