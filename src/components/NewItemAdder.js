@@ -5,6 +5,7 @@ import { useState } from "react"
 const NewItemAdder = ({ stateVars, setStateVars }) => {
   const [isAddingNewItem, setIsAddingNewItem] = useState(false)
   const [newMediaObj, setNewMediaObj] = useState({
+    id: stateVars.idCounter,
     title: "Title",
     medium: "Video Game"
   })
@@ -36,6 +37,7 @@ const NewItemAdder = ({ stateVars, setStateVars }) => {
 
     // reset NewItemAdder states to default
     setNewMediaObj({
+      id: stateVars.idCounter +1,
       title: "Title",
       medium: "Video Game"
     })
