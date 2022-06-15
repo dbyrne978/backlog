@@ -9,22 +9,22 @@ const mediaObjArr = [
     {
       id: 1,
       title: "13 Sentinels",
-      mediaType: "Video Game"
+      medium: "Video Game"
     },
     {
       id: 2,
       title: "Buffy: the Vampire Slayer",
-      mediaType: "TV Show"
+      medium: "TV Show"
     },
     {
       id: 3,
       title: "Chronicle",
-      mediaType: "Movie"
+      medium: "Movie"
     },
     {
       id: 4,
       title: "Blood of Elves",
-      mediaType: "Book"
+      medium: "Book"
     }
   ]
 

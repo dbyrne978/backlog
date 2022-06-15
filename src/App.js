@@ -6,7 +6,7 @@ import Footer from './components/Footer'
 import MediaEleContainer from './components/MediaEleContainer'
 
 const App = (props) => {
-  const [stateVars, updateStateVars] = useState({
+  const [stateVars, setStateVars] = useState({
     mediaObjArr: props.mediaObjArr,
     idCounter: props.idCounter
   })
@@ -17,8 +17,9 @@ const App = (props) => {
       <MediaEleContainer {...stateVars.mediaObjArr}/>
       <NewItemAdder
         stateVars={stateVars}
-        updateStateVars={updateStateVars}
+        setStateVars={setStateVars}
       />
+      <br/><br/>
       <Footer />
     </div>
   );
