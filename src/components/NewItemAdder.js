@@ -26,12 +26,19 @@ const NewItemAdder = ({ stateVars, setStateVars }) => {
   const addNewMediaObj = (event) => {
     event.preventDefault()
 
+    // update array with new media object
     setStateVars(
       {
         mediaObjArr: stateVars.mediaObjArr.concat(newMediaObj),
         idCounter: stateVars.idCounter + 1
       }
     )
+
+    // reset NewItemAdder states to default
+    setNewMediaObj({
+      title: "Title",
+      medium: "Video Game"
+    })
     setIsAddingNewItem(false)
   }
 
