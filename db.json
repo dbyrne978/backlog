@@ -1,0 +1,32 @@
+{
+  "userData":{
+    "userName": "Dan"
+  },
+
+  "mediaObjArr":[
+      {
+        "id": 1,
+        "title": "13 Sentinels",
+        "medium": "Video Game"
+      },
+      {
+        "id": 2,
+        "title": "Buffy: the Vampire Slayer",
+        "medium": "TV Show"
+      },
+      {
+        "id": 3,
+        "title": "Chronicle",
+        "medium": "Movie"
+      },
+      {
+        "id": 4,
+        "title": "Blood of Elves",
+        "medium": "Book"
+      }
+  ],
+
+  "counters":{
+    "idCounter": 5
+  }
+}

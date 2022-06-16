@@ -1,15 +1,31 @@
 import React from 'react'
+import { useState, useEffect } from "react"
+import axios from 'axios'
 import Button from './Button'
-import { useState } from "react"
 
-const NewItemAdder = ({ stateVars, setStateVars }) => {
+const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
   const [isAddingNewItem, setIsAddingNewItem] = useState(false)
   const [newMediaObj, setNewMediaObj] = useState({
-    id: stateVars.idCounter,
+    id: 0,
     title: "Title",
     medium: "Video Game"
   })
+  const [counters, setCounters] = useState({})
 
+  // axios
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/counters')
+      .then(response => {
+        setCounters(response.data)
+        setNewMediaObj({
+          ...newMediaObj,
+          id: response.data.idCounter
+        })
+      })
+  }, [])
+
+  // misc event handlers
   const handleMediaTitleChange = (event) => {
     setNewMediaObj({
       ...newMediaObj,
@@ -26,25 +42,20 @@ const NewItemAdder = ({ stateVars, setStateVars }) => {
 
   const addNewMediaObj = (event) => {
     event.preventDefault()
-
-    // update array with new media object
-    setStateVars(
-      {
-        mediaObjArr: stateVars.mediaObjArr.concat(newMediaObj),
-        idCounter: stateVars.idCounter + 1
-      }
-    )
-
-    // reset NewItemAdder states to default
+    setMediaObjArr(mediaObjArr.concat(newMediaObj))
+    setCounters({
+      idCounter: counters.idCounter + 1
+    })
     setNewMediaObj({
-      id: stateVars.idCounter +1,
+      id: counters.idCounter + 1,
       title: "Title",
       medium: "Video Game"
     })
     setIsAddingNewItem(false)
   }
 
-  if (isAddingNewItem == false) {
+  //
+  if (isAddingNewItem === false) {
     return (
       <Button
         onClick={() => setIsAddingNewItem(true)}
@@ -59,9 +70,7 @@ const NewItemAdder = ({ stateVars, setStateVars }) => {
           value={newMediaObj.title}
           onChange={handleMediaTitleChange}
         />
-
-        <br/>
-
+        
         <select 
           value={newMediaObj.medium}
           onChange={handleMediumChange}>
@@ -70,7 +79,6 @@ const NewItemAdder = ({ stateVars, setStateVars }) => {
           <option value="Movie">Movie</option>
           <option value="Book">Book</option>
         </select>
-
         <button type="submit">Save</button>
       </form>   
     )
