@@ -4,23 +4,24 @@ import axios from 'axios'
 import Button from './Button'
 
 const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
+  // states
   const [isAddingNewItem, setIsAddingNewItem] = useState(false)
-  const [newMediaObj, setNewMediaObj] = useState({
+  const [tempMediaObj, setTempMediaObj] = useState({
     title: "Title",
     medium: "Video Game"
   })
 
   // misc event handlers
   const handleMediaTitleChange = (event) => {
-    setNewMediaObj({
-      ...newMediaObj,
+    setTempMediaObj({
+      ...tempMediaObj,
       title: event.target.value
     })
   }
 
   const handleMediumChange = (event) => {
-    setNewMediaObj({
-      ...newMediaObj,
+    setTempMediaObj({
+      ...tempMediaObj,
       medium: (event.target.options[event.target.options.selectedIndex].value)
     })
   }
@@ -28,10 +29,10 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
   const addNewMediaObj = (event) => {
     event.preventDefault()
     axios
-      .post('http://localhost:3001/mediaObjArr', newMediaObj)
+      .post('http://localhost:3001/mediaObjArr', tempMediaObj)
       .then(response => {
         setMediaObjArr(mediaObjArr.concat(response.data))
-        setNewMediaObj({
+        setTempMediaObj({
           title: "Title",
           medium: "Video Game"
         })
@@ -52,12 +53,12 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
       <form onSubmit={addNewMediaObj}>
         <input
           type="text"
-          value={newMediaObj.title}
+          value={tempMediaObj.title}
           onChange={handleMediaTitleChange}
         />
 
         <select 
-          value={newMediaObj.medium}
+          value={tempMediaObj.medium}
           onChange={handleMediumChange}>
           <option value="Video Game">Video Game</option>
           <option value="TV Show">TV Show</option>
