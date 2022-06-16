@@ -11,7 +11,7 @@ const App = () => {
   const [mediaObjArr, setMediaObjArr] = useState({})
   const [userData, setUserData] = useState({})
 
-  // axios
+  // axios gets on initial load
   useEffect(() => {
     axios
       .get('http://localhost:3001/mediaObjArr')

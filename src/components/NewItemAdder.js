@@ -6,24 +6,9 @@ import Button from './Button'
 const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
   const [isAddingNewItem, setIsAddingNewItem] = useState(false)
   const [newMediaObj, setNewMediaObj] = useState({
-    id: 0,
     title: "Title",
     medium: "Video Game"
   })
-  const [counters, setCounters] = useState({})
-
-  // axios
-  useEffect(() => {
-    axios
-      .get('http://localhost:3001/counters')
-      .then(response => {
-        setCounters(response.data)
-        setNewMediaObj({
-          ...newMediaObj,
-          id: response.data.idCounter
-        })
-      })
-  }, [])
 
   // misc event handlers
   const handleMediaTitleChange = (event) => {
@@ -42,16 +27,16 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
 
   const addNewMediaObj = (event) => {
     event.preventDefault()
-    setMediaObjArr(mediaObjArr.concat(newMediaObj))
-    setCounters({
-      idCounter: counters.idCounter + 1
-    })
-    setNewMediaObj({
-      id: counters.idCounter + 1,
-      title: "Title",
-      medium: "Video Game"
-    })
-    setIsAddingNewItem(false)
+    axios
+      .post('http://localhost:3001/mediaObjArr', newMediaObj)
+      .then(response => {
+        setMediaObjArr(mediaObjArr.concat(response.data))
+        setNewMediaObj({
+          title: "Title",
+          medium: "Video Game"
+        })
+        setIsAddingNewItem(false)
+      })
   }
 
   //
@@ -70,7 +55,7 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
           value={newMediaObj.title}
           onChange={handleMediaTitleChange}
         />
-        
+
         <select 
           value={newMediaObj.medium}
           onChange={handleMediumChange}>
