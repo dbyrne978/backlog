@@ -8,7 +8,8 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
   const [isAddingNewItem, setIsAddingNewItem] = useState(false)
   const [tempMediaObj, setTempMediaObj] = useState({
     title: "Title",
-    medium: "Video Game"
+    medium: "Video Game",
+    progress: false
   })
 
   // misc event handlers
@@ -34,7 +35,8 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
         setMediaObjArr(mediaObjArr.concat(response.data))
         setTempMediaObj({
           title: "Title",
-          medium: "Video Game"
+          medium: "Video Game",
+          progress: false
         })
         setIsAddingNewItem(false)
       })

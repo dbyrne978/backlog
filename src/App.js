@@ -8,7 +8,7 @@ import MediaEleContainer from './components/MediaEleContainer'
 
 const App = () => {
   // states
-  const [mediaObjArr, setMediaObjArr] = useState({})
+  const [mediaObjArr, setMediaObjArr] = useState([])
   const [userData, setUserData] = useState({})
 
   // axios gets on initial load
@@ -32,7 +32,10 @@ const App = () => {
   return (
     <div className="App">
       <Header userName={userData.userName} />
-      <MediaEleContainer {...mediaObjArr}/>
+      <MediaEleContainer
+        mediaObjArr={mediaObjArr}
+        setMediaObjArr={setMediaObjArr}
+      />
       <NewItemAdder
         mediaObjArr={mediaObjArr}
         setMediaObjArr={setMediaObjArr}

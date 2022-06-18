@@ -1,28 +1,55 @@
 {
-  "userData":{
+  "userData": {
     "userName": "Dan"
   },
-
-  "mediaObjArr":[
-      {
-        "id": 1,
-        "title": "13 Sentinels",
-        "medium": "Video Game"
-      },
-      {
-        "id": 2,
-        "title": "Buffy: the Vampire Slayer",
-        "medium": "TV Show"
-      },
-      {
-        "id": 3,
-        "title": "Chronicle",
-        "medium": "Movie"
-      },
-      {
-        "id": 4,
-        "title": "Blood of Elves",
-        "medium": "Book"
-      }
+  "mediaObjArr": [
+    {
+      "id": 1,
+      "title": "13 Sentinels",
+      "medium": "Video Game",
+      "progress": false
+    },
+    {
+      "id": 2,
+      "title": "Buffy: the Vampire Slayer",
+      "medium": "TV Show",
+      "progress": false
+    },
+    {
+      "id": 3,
+      "title": "Chronicle",
+      "medium": "Movie",
+      "progress": false
+    },
+    {
+      "id": 4,
+      "title": "Blood of Elves",
+      "medium": "Book",
+      "progress": true
+    },
+    {
+      "title": "Title",
+      "medium": "Video Game",
+      "id": 5,
+      "progress": false
+    },
+    {
+      "title": "Title",
+      "medium": "Video Game",
+      "id": 6,
+      "progress": true
+    },
+    {
+      "title": "Title",
+      "medium": "Video Game",
+      "progress": true,
+      "id": 7
+    },
+    {
+      "title": "Title",
+      "medium": "Video Game",
+      "progress": false,
+      "id": 8
+    }
   ]
 }

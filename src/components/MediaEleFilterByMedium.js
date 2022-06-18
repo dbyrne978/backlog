@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from "react"
 
 const MediaEleFilterByMedium = ({ mediumsToDisplay, setMediumsToDisplay }) => {
     const handleCheckboxChange = (event) => {
