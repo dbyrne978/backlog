@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from "react"
 import axios from 'axios'
 import Button from './Button'
+import mediaObjService from '../services/mediaObjArr'
 
 const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
   // states
@@ -29,10 +30,10 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
 
   const addNewMediaObj = (event) => {
     event.preventDefault()
-    axios
-      .post('http://localhost:3001/mediaObjArr', tempMediaObj)
-      .then(response => {
-        setMediaObjArr(mediaObjArr.concat(response.data))
+    mediaObjService
+      .create(tempMediaObj)
+      .then(returnedMediaObj => {
+        setMediaObjArr(mediaObjArr.concat(returnedMediaObj))
         setTempMediaObj({
           title: "Title",
           medium: "Video Game",

@@ -7,7 +7,7 @@
       "id": 1,
       "title": "13 Sentinels",
       "medium": "Video Game",
-      "progress": false
+      "progress": true
     },
     {
       "id": 2,
@@ -37,19 +37,37 @@
       "title": "Title",
       "medium": "Video Game",
       "id": 6,
-      "progress": true
-    },
-    {
-      "title": "Title",
-      "medium": "Video Game",
-      "progress": true,
-      "id": 7
+      "progress": false
     },
     {
       "title": "Title",
       "medium": "Video Game",
       "progress": false,
+      "id": 7
+    },
+    {
+      "title": "Title",
+      "medium": "Video Game",
+      "progress": true,
       "id": 8
+    },
+    {
+      "title": "Title",
+      "medium": "Video Game",
+      "progress": false,
+      "id": 9
+    },
+    {
+      "title": "Titlegj.j",
+      "medium": "TV Show",
+      "progress": false,
+      "id": 10
+    },
+    {
+      "title": "Title",
+      "medium": "Book",
+      "progress": true,
+      "id": 11
     }
   ]
 }

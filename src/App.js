@@ -5,6 +5,7 @@ import Header from './components/Header'
 import NewItemAdder from './components/NewItemAdder'
 import Footer from './components/Footer'
 import MediaEleContainer from './components/MediaEleContainer'
+import mediaObjService from './services/mediaObjArr'
 
 const App = () => {
   // states
@@ -13,10 +14,10 @@ const App = () => {
 
   // axios gets on initial load
   useEffect(() => {
-    axios
-      .get('http://localhost:3001/mediaObjArr')
-      .then(response => {
-        setMediaObjArr(response.data)
+    mediaObjService
+      .getAll()
+      .then(initialMediaObjArr => {
+        setMediaObjArr(initialMediaObjArr)
       })
   }, [])
 

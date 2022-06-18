@@ -3,6 +3,7 @@ import { useState } from "react"
 import axios from 'axios'
 import MediaEle from './MediaEle'
 import MediaEleFilterByMedium from './MediaEleFilterByMedium'
+import mediaObjService from '../services/mediaObjArr'
 
 const MediaEleContainer = ( { mediaObjArr, setMediaObjArr} ) => {
   const allMediumValues = ["Video Game","TV Show","Movie","Book"]
@@ -13,13 +14,18 @@ const MediaEleContainer = ( { mediaObjArr, setMediaObjArr} ) => {
   )
 
   const toggleProgressOf = id => {
-    const url = `http://localhost:3001/mediaObjArr/${id}`
     const mediaObj = mediaObjArr.find(n => n.id === id)
     const changedMediaObj = { ...mediaObj, progress: !mediaObj.progress }
   
-    axios.put(url, changedMediaObj).then(response => {
-      setMediaObjArr(mediaObjArr.map(mediaObj => {
-        if (mediaObj.id !== id) {return mediaObj} else {return response.data}
+    mediaObjService
+      .update(id, changedMediaObj)
+      .then(returnedMediaObj => {
+        setMediaObjArr(mediaObjArr.map(mediaObj => {
+          if (mediaObj.id !== id) {
+            return mediaObj
+          } else {
+            return returnedMediaObj
+          }
       }))
     })
   }
