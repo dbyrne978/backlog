@@ -5,7 +5,7 @@ const MediaEleFilterByMedium = ({ mediumsToDisplay, setMediumsToDisplay }) => {
       let checkboxValue = event.target.value
       if (mediumsToDisplay.includes(checkboxValue)) {
         setMediumsToDisplay(
-          mediumsToDisplay.filter(medium => medium != checkboxValue)
+          mediumsToDisplay.filter(medium => medium !== checkboxValue)
         )
       } else setMediumsToDisplay(mediumsToDisplay.concat(checkboxValue))
     }
