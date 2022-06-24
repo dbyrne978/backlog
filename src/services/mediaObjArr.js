@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3001/mediaObjArr'
+const baseUrl = 'http://localhost:3001/api/db/mediaObjArr'
 
 const getAll = () => {
   const request = axios.get(baseUrl)
@@ -16,4 +16,10 @@ const update = (id, newObject) => {
   return request.then(response => response.data)
 }
 
-export default { getAll, create, update }
+const exportedObject = {
+  getAll,
+  create,
+  update
+};
+
+export default exportedObject;
