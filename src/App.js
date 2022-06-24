@@ -23,7 +23,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/api/db/userData')
+      .get('/api/db/userData')
       .then(response => {
         setUserData(response.data)
       })
