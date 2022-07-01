@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/api/db/mediaObjArr'
+const baseUrl = '/api/mediaObjArr'
 
 const getAll = () => {
   const request = axios.get(baseUrl)
