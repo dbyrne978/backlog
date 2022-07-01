@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from "react"
+import { useState } from 'react'
 import Button from './Button'
 import AdderErr from './AdderErr'
 import mediaObjService from '../services/mediaObjArr'
@@ -8,8 +8,8 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
   // states
   const [isAddingNewItem, setIsAddingNewItem] = useState(false)
   const [tempMediaObj, setTempMediaObj] = useState({
-    title: "Title",
-    medium: "Video Game",
+    title: 'Title',
+    medium: 'Video Game',
     progress: false
   })
   const [adderErr, setAdderErr] = useState(undefined)
@@ -37,8 +37,8 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
       .then(returnedMediaObj => {
         setMediaObjArr(mediaObjArr.concat(returnedMediaObj))
         setTempMediaObj({
-          title: "Title",
-          medium: "Video Game",
+          title: 'Title',
+          medium: 'Video Game',
           progress: false
         })
         setIsAddingNewItem(false)
@@ -61,7 +61,7 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
       <>
         <form onSubmit={addNewMediaObj}>
           <input
-            type="text"
+            type='text'
             value={tempMediaObj.title}
             onChange={handleMediaTitleChange}
           />
@@ -69,12 +69,12 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
           <select 
             value={tempMediaObj.medium}
             onChange={handleMediumChange}>
-            <option value="Video Game">Video Game</option>
-            <option value="TV Show">TV Show</option>
-            <option value="Movie">Movie</option>
-            <option value="Book">Book</option>
+            <option value='Video Game'>Video Game</option>
+            <option value='TV Show'>TV Show</option>
+            <option value='Movie'>Movie</option>
+            <option value='Book'>Book</option>
           </select>
-          <button type="submit">Save</button>
+          <button type='submit'>Save</button>
         </form>
         <AdderErr adderErr={adderErr} />
       </>
@@ -82,4 +82,4 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
   }
 }
 
-export default NewItemAdder;
+export default NewItemAdder

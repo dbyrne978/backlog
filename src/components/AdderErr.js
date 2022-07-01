@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from "react"
 
 const AdderErr = ( {adderErr} ) => {
   if (adderErr) {
@@ -8,4 +7,4 @@ const AdderErr = ( {adderErr} ) => {
   return <></>
 }
 
-export default AdderErr;
+export default AdderErr

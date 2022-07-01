@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from "react"
-import axios from 'axios'
 import MediaEle from './MediaEle'
 import MediaEleFilterByMedium from './MediaEleFilterByMedium'
 import mediaObjService from '../services/mediaObjArr'

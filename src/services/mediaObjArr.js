@@ -20,6 +20,6 @@ const exportedObject = {
   getAll,
   create,
   update
-};
+}
 
-export default exportedObject;
+export default exportedObject
