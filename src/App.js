@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState, useEffect } from "react"
+import React from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Header from './components/Header'
 import NewItemAdder from './components/NewItemAdder'
@@ -28,7 +28,7 @@ const App = () => {
         setUserData(response.data)
       })
   }, [])
-  
+
   //
   return (
     <div className="App">
@@ -44,7 +44,7 @@ const App = () => {
       <br/><br/>
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

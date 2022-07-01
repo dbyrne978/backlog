@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AdderErr = ( {adderErr} ) => {
+const AdderErr = ( { adderErr } ) => {
   if (adderErr) {
     return <div className="adder-err">{adderErr}</div>
   }

@@ -4,7 +4,7 @@ import Button from './Button'
 import AdderErr from './AdderErr'
 import mediaObjService from '../services/mediaObjArr'
 
-const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
+const NewItemAdder = ( { mediaObjArr, setMediaObjArr } ) => {
   // states
   const [isAddingNewItem, setIsAddingNewItem] = useState(false)
   const [tempMediaObj, setTempMediaObj] = useState({
@@ -66,7 +66,7 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
             onChange={handleMediaTitleChange}
           />
 
-          <select 
+          <select
             value={tempMediaObj.medium}
             onChange={handleMediumChange}>
             <option value='Video Game'>Video Game</option>

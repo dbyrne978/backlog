@@ -1,11 +1,11 @@
 import React from 'react'
-import { useState } from "react"
+import { useState } from 'react'
 import MediaEle from './MediaEle'
 import MediaEleFilterByMedium from './MediaEleFilterByMedium'
 import mediaObjService from '../services/mediaObjArr'
 
-const MediaEleContainer = ( { mediaObjArr, setMediaObjArr} ) => {
-  const allMediumValues = ["Video Game","TV Show","Movie","Book"]
+const MediaEleContainer = ( { mediaObjArr, setMediaObjArr } ) => {
+  const allMediumValues = ['Video Game','TV Show','Movie','Book']
   const [mediumsToDisplay, setMediumsToDisplay] = useState(allMediumValues)
 
   const filteredMediaObjArr = mediaObjArr.filter(
@@ -15,7 +15,7 @@ const MediaEleContainer = ( { mediaObjArr, setMediaObjArr} ) => {
   const toggleProgressOf = id => {
     const mediaObj = mediaObjArr.find(n => n.id === id)
     const changedMediaObj = { ...mediaObj, progress: !mediaObj.progress }
-  
+
     mediaObjService
       .update(id, changedMediaObj)
       .then(returnedMediaObj => {
@@ -25,13 +25,13 @@ const MediaEleContainer = ( { mediaObjArr, setMediaObjArr} ) => {
           } else {
             return returnedMediaObj
           }
-      }))
-    })
+        }))
+      })
   }
 
   return (
-    <ul className="media-ele-container">
-      <MediaEleFilterByMedium 
+    <ul className='media-ele-container'>
+      <MediaEleFilterByMedium
         mediumsToDisplay={mediumsToDisplay}
         setMediumsToDisplay={setMediumsToDisplay}
       />
