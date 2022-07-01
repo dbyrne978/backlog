@@ -1,7 +1,7 @@
 import React from 'react'
-import { useState, useEffect } from "react"
-import axios from 'axios'
+import { useState } from "react"
 import Button from './Button'
+import AdderErr from './AdderErr'
 import mediaObjService from '../services/mediaObjArr'
 
 const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
@@ -76,7 +76,7 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
           </select>
           <button type="submit">Save</button>
         </form>
-        <div className="adder-err">{adderErr}</div>
+        <AdderErr adderErr={adderErr} />
       </>
     )
   }
