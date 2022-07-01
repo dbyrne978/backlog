@@ -12,6 +12,7 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
     medium: "Video Game",
     progress: false
   })
+  const [adderErr, setAdderErr] = useState(undefined)
 
   // misc event handlers
   const handleMediaTitleChange = (event) => {
@@ -30,6 +31,7 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
 
   const addNewMediaObj = (event) => {
     event.preventDefault()
+    setAdderErr(undefined)
     mediaObjService
       .create(tempMediaObj)
       .then(returnedMediaObj => {
@@ -40,6 +42,9 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
           progress: false
         })
         setIsAddingNewItem(false)
+      })
+      .catch(error => {
+        setAdderErr(error.response.data.error)
       })
   }
 
@@ -53,23 +58,26 @@ const NewItemAdder = ( {mediaObjArr, setMediaObjArr} ) => {
     )
   } else {
     return (
-      <form onSubmit={addNewMediaObj}>
-        <input
-          type="text"
-          value={tempMediaObj.title}
-          onChange={handleMediaTitleChange}
-        />
+      <>
+        <form onSubmit={addNewMediaObj}>
+          <input
+            type="text"
+            value={tempMediaObj.title}
+            onChange={handleMediaTitleChange}
+          />
 
-        <select 
-          value={tempMediaObj.medium}
-          onChange={handleMediumChange}>
-          <option value="Video Game">Video Game</option>
-          <option value="TV Show">TV Show</option>
-          <option value="Movie">Movie</option>
-          <option value="Book">Book</option>
-        </select>
-        <button type="submit">Save</button>
-      </form>   
+          <select 
+            value={tempMediaObj.medium}
+            onChange={handleMediumChange}>
+            <option value="Video Game">Video Game</option>
+            <option value="TV Show">TV Show</option>
+            <option value="Movie">Movie</option>
+            <option value="Book">Book</option>
+          </select>
+          <button type="submit">Save</button>
+        </form>
+        <div className="adder-err">{adderErr}</div>
+      </>
     )
   }
 }
