@@ -31,7 +31,7 @@ const App = () => {
 
   //
   return (
-    <div className="App">
+    <div className='App'>
       <Header userName={userData.userName} />
       <MediaEleContainer
         mediaObjArr={mediaObjArr}
