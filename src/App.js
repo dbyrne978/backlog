@@ -2,22 +2,22 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Header from './components/Header'
-import NewItemAdder from './components/NewItemAdder'
+import BacklogItemAdder from './components/BacklogItemAdder'
 import Footer from './components/Footer'
-import MediaEleContainer from './components/MediaEleContainer'
-import mediaObjService from './services/mediaObjArr'
+import BacklogItemElementContainer from './components/BacklogItemElementContainer'
+import backlogItemService from './services/backlogItems'
 
 const App = () => {
   // states
-  const [mediaObjArr, setMediaObjArr] = useState([])
+  const [backlogItems, setBacklogItems] = useState([])
   const [userData, setUserData] = useState({})
 
   // axios gets on initial load
   useEffect(() => {
-    mediaObjService
+    backlogItemService
       .getAll()
-      .then(initialMediaObjArr => {
-        setMediaObjArr(initialMediaObjArr)
+      .then(initialBacklogItems => {
+        setBacklogItems(initialBacklogItems)
       })
   }, [])
 
@@ -33,13 +33,13 @@ const App = () => {
   return (
     <div className='App'>
       <Header userName={userData.userName} />
-      <MediaEleContainer
-        mediaObjArr={mediaObjArr}
-        setMediaObjArr={setMediaObjArr}
+      <BacklogItemElementContainer
+        backlogItems={backlogItems}
+        setBacklogItems={setBacklogItems}
       />
-      <NewItemAdder
-        mediaObjArr={mediaObjArr}
-        setMediaObjArr={setMediaObjArr}
+      <BacklogItemAdder
+        backlogItems={backlogItems}
+        setBacklogItems={setBacklogItems}
       />
       <br/><br/>
       <Footer />

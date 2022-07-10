@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MediaEleFilterByMedium = ({ mediumsToDisplay, setMediumsToDisplay }) => {
+const BacklogItemElementFilterByMedium = ({ mediumsToDisplay, setMediumsToDisplay }) => {
   const handleCheckboxChange = (event) => {
     let checkboxValue = event.target.value
     if (mediumsToDisplay.includes(checkboxValue)) {
@@ -11,7 +11,7 @@ const MediaEleFilterByMedium = ({ mediumsToDisplay, setMediumsToDisplay }) => {
   }
 
   return(
-    <div className='media-ele-filter-by-medium'>
+    <div className='backlog-item-element-filter-by-medium'>
       <input
         type='checkbox'
         id='Video Game'
@@ -51,4 +51,4 @@ const MediaEleFilterByMedium = ({ mediumsToDisplay, setMediumsToDisplay }) => {
   )
 }
 
-export default MediaEleFilterByMedium
+export default BacklogItemElementFilterByMedium

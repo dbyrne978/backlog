@@ -1,10 +1,10 @@
-.media-ele {
+.backlog-item-element {
   color: grey;
   padding-top: 3px;
   font-size: 15px;
 }
 
-.adder-err {
+.backlog-item-adder-err {
   background-color: rgb(189, 189, 189);
   color: red;
   padding: 3px;
