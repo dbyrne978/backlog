@@ -5,6 +5,7 @@ import Header from './components/Header'
 import BacklogItemAdder from './components/BacklogItemAdder'
 import Footer from './components/Footer'
 import BacklogItemElementContainer from './components/BacklogItemElementContainer'
+import Login from './components/Login'
 import backlogItemService from './services/backlogItems'
 
 const App = () => {
@@ -13,6 +14,8 @@ const App = () => {
   const [userData, setUserData] = useState({})
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [user, setUser] = useState(null)
+  user
 
   // axios gets on initial load
   useEffect(() => {
@@ -32,36 +35,16 @@ const App = () => {
   }, [])
 
   //
-  const handleLogin = (event) => {
-    event.preventDefault()
-    console.log('logging in with', username, password)
-  }
-
-  //
   return (
     <div className='App'>
-      <Header userName={userData.userName} />
-      <form onSubmit={handleLogin}>
-        <div>
-          username
-          <input
-            type="text"
-            value={username}
-            name="Username"
-            onChange={({ target }) => setUsername(target.value)}
-          />
-        </div>
-        <div>
-          password
-          <input
-            type="password"
-            value={password}
-            name="Password"
-            onChange={({ target }) => setPassword(target.value)}
-          />
-        </div>
-        <button type="submit">login</button>
-      </form>
+      <Header username={userData.username} />
+      <Login
+        username={username}
+        setUsername={setUsername}
+        password={password}
+        setPassword={setPassword}
+        setUser={setUser}
+      />
       <BacklogItemElementContainer
         backlogItems={backlogItems}
         setBacklogItems={setBacklogItems}
