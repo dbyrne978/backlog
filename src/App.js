@@ -27,7 +27,7 @@ const App = () => {
   //
   return (
     <div className='App'>
-      <Header username={username} />
+      <Header username={user.username} />
       <Login
         username={username}
         setUsername={setUsername}

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Header = ({ userName }) => (
+const Header = ({ username }) => (
   <>
-    <h1>{userName}&apos;s BackLog</h1>
+    <h1>{username}&apos;s BackLog</h1>
   </>
 )
 
