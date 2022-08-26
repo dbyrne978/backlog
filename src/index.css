@@ -13,3 +13,23 @@
   margin-top: 3px;
   width: fit-content;
 }
+
+.login-msg-success {
+  background-color: rgb(189, 189, 189);
+  color: green;
+  padding: 3px;
+  border: 3px solid green;
+  border-radius: 5px;
+  margin-top: 3px;
+  width: fit-content;
+}
+
+.login-msg-failure {
+  background-color: rgb(189, 189, 189);
+  color: red;
+  padding: 3px;
+  border: 3px solid red;
+  border-radius: 5px;
+  margin-top: 3px;
+  width: fit-content;
+}

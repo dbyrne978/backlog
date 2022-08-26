@@ -1,7 +1,11 @@
 import React from 'react'
+import { useState } from 'react'
 import loginService from '../services/login'
+import LoginMsg from './LoginMsg'
 
 const Login = ( { username, setUsername, password, setPassword, setUser } ) => {
+  const [loginMsg, setLoginMsg] = useState(null)
+
   const handleLogin = async (event) => {
     event.preventDefault()
     try {
@@ -11,12 +15,11 @@ const Login = ( { username, setUsername, password, setPassword, setUser } ) => {
       setUser(user)
       setUsername('')
       setPassword('')
+      setLoginMsg('Successfully logged in')
     } catch (exception) {
-      //setErrorMessage('Wrong credentials')
-      console.log('error - wrong credentials')
+      setLoginMsg('Username or password is incorrect')
       setTimeout(() => {
-        //setErrorMessage(null)
-        console.log('error - timeout')
+        'Service timeout'
       }, 5000)
     }
   }
@@ -44,6 +47,7 @@ const Login = ( { username, setUsername, password, setPassword, setUser } ) => {
         </div>
         <button type="submit">login</button>
       </form>
+      <LoginMsg loginMsg={loginMsg} />
     </>
   )
 }
