@@ -13,7 +13,9 @@ const App = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
-  user
+  const loggedInUsername = user
+    ? user.username
+    : null
 
   // axios gets on initial load
   useEffect(() => {
@@ -27,7 +29,9 @@ const App = () => {
   //
   return (
     <div className='App'>
-      <Header username={user.username} />
+      <Header
+        username={loggedInUsername}
+      />
       <Login
         username={username}
         setUsername={setUsername}
