@@ -26,28 +26,44 @@ const App = () => {
       })
   }, [])
 
+  // forms
+  const loginForm = () => (
+    <Login
+      username={username}
+      setUsername={setUsername}
+      password={password}
+      setPassword={setPassword}
+      setUser={setUser}
+    />
+  )
+
+  const backlogItemAdderForm = () => (
+    <BacklogItemAdder
+      backlogItems={backlogItems}
+      setBacklogItems={setBacklogItems}
+    />
+  )
+
+
   //
   return (
     <div className='App'>
       <Header
         username={loggedInUsername}
       />
-      <Login
-        username={username}
-        setUsername={setUsername}
-        password={password}
-        setPassword={setPassword}
-        setUser={setUser}
-      />
+
+      {user === null
+        ? loginForm()
+        : backlogItemAdderForm()
+      }
+
       <BacklogItemElementContainer
         backlogItems={backlogItems}
         setBacklogItems={setBacklogItems}
       />
-      <BacklogItemAdder
-        backlogItems={backlogItems}
-        setBacklogItems={setBacklogItems}
-      />
+
       <br/><br/>
+
       <Footer />
     </div>
   )
