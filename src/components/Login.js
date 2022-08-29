@@ -15,7 +15,6 @@ const Login = ( { username, setUsername, password, setPassword, setUser } ) => {
       setUser(user)
       setUsername('')
       setPassword('')
-      setLoginMsg('Successfully logged in')
     } catch (exception) {
       setLoginMsg('Username or password is incorrect')
       setTimeout(() => {
