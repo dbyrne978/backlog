@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import loginService from '../services/login'
+import backlogItemsService from '../services/backlogItems'
 import LoginMsg from './LoginMsg'
 
 const Login = ( { username, setUsername, password, setPassword, setUser } ) => {
@@ -12,6 +13,7 @@ const Login = ( { username, setUsername, password, setPassword, setUser } ) => {
       const user = await loginService.login({
         username, password,
       })
+      backlogItemsService.setToken(user.token)
       setUser(user)
       setUsername('')
       setPassword('')
