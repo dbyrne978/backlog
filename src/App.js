@@ -17,13 +17,22 @@ const App = () => {
     ? user.username
     : null
 
-  // axios gets on initial load
+  // initial load
   useEffect(() => {
     backlogItemService
       .getAll()
       .then(initialBacklogItems => {
         setBacklogItems(initialBacklogItems)
       })
+  }, [])
+
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedBacklogAppUser')
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON)
+      setUser(user)
+      backlogItemService.setToken(user.token)
+    }
   }, [])
 
   // forms

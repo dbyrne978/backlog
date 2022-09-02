@@ -13,6 +13,9 @@ const Login = ( { username, setUsername, password, setPassword, setUser } ) => {
       const user = await loginService.login({
         username, password,
       })
+      window.localStorage.setItem(
+        'loggedBacklogAppUser', JSON.stringify(user)
+      )
       backlogItemsService.setToken(user.token)
       setUser(user)
       setUsername('')
